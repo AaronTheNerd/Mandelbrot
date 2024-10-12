@@ -3,20 +3,24 @@ import os
 from dataclasses import dataclass, field, fields, is_dataclass
 from typing import Any, Optional, TypeVar
 
+
 @dataclass
 class ImageConfigs:
     width: int
     height: int
 
+
 @dataclass
 class ColorConfigs:
     theme: str
+
 
 @dataclass
 class MandelbrotConfigs:
     origin: list[float]
     span: float
     max_iterations: int
+
 
 @dataclass
 class Configs:
@@ -31,7 +35,9 @@ T = TypeVar("T")
 def _replaceWithDataclass(raw_configs: dict[str, Any], cls: type[T]) -> T:
     for field in fields(cls):
         if is_dataclass(field.type):
-            raw_configs[field.name] = _replaceWithDataclass(raw_configs[field.name], field.type)
+            raw_configs[field.name] = _replaceWithDataclass(
+                raw_configs[field.name], field.type
+            )
     return cls(**raw_configs)
 
 

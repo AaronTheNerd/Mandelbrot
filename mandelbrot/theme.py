@@ -3,10 +3,14 @@ from mandelbrot.configs import Configs, ImageConfigs
 from mandelbrot.themes import get_theme
 import numpy as np
 
+
 def blank_image(configs: ImageConfigs) -> np.ndarray:
     return np.zeros((configs.height, configs.width, 3), np.uint8)
 
-def apply_theme(bailout_array: np.ndarray, theme_str: str, configs: Configs) -> np.ndarray:
+
+def apply_theme(
+    bailout_array: np.ndarray, theme_str: str, configs: Configs
+) -> np.ndarray:
     image = blank_image(configs.image)
     theme = get_theme(theme_str, configs)
     for y in range(configs.image.height):

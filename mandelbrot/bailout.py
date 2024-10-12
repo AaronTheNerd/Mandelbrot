@@ -4,6 +4,7 @@ import math
 from functools import partial
 import numpy as np
 
+
 def actual_pos(x: int, y: int, configs: Configs) -> complex:
     span_x = configs.mandelbrot.span
     dist_per_pixel = span_x / configs.image.width
@@ -12,8 +13,9 @@ def actual_pos(x: int, y: int, configs: Configs) -> complex:
     origin_y = configs.mandelbrot.origin[1]
     return complex(
         origin_x - 0.5 * span_x + x * dist_per_pixel,
-        origin_y + 0.5 * span_y - y * dist_per_pixel
+        origin_y + 0.5 * span_y - y * dist_per_pixel,
     )
+
 
 def get_starting_array(configs: Configs) -> np.ndarray:
     arr = np.zeros((configs.image.height, configs.image.width), np.complex64)
@@ -21,6 +23,7 @@ def get_starting_array(configs: Configs) -> np.ndarray:
         for x in range(configs.image.width):
             arr[y, x] = actual_pos(x, y, configs)
     return arr
+
 
 def get_bailout(max_iterations: int, pos: complex) -> float:
     x0 = pos.real
@@ -42,6 +45,9 @@ def get_bailout(max_iterations: int, pos: complex) -> float:
         iteration = iteration + 1 - nu
     return iteration
 
+
 def get_bailout_array(configs: Configs) -> np.ndarray:
-    bailout_vector = np.vectorize(partial(get_bailout, configs.mandelbrot.max_iterations))
+    bailout_vector = np.vectorize(
+        partial(get_bailout, configs.mandelbrot.max_iterations)
+    )
     return bailout_vector(get_starting_array(configs))
