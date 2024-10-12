@@ -4,11 +4,12 @@
         "height": 800
     },
     "color": {
-        "theme": "candy_inter"
+        "blender": "inter",
+        "colormap": "wiki"
     },
     "mandelbrot": {
-        "origin": [-0.761574, -0.0847596],
-        "span": 0.0001,
-        "max_iterations": 300
+        "origin": [-1.766475, 0.041747],
+        "span": 0.00025,
+        "max_iterations": 10000
     }
 }

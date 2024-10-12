@@ -1,7 +1,7 @@
 import json
 import os
-from dataclasses import dataclass, field, fields, is_dataclass
-from typing import Any, Optional, TypeVar
+from dataclasses import dataclass,  fields, is_dataclass
+from typing import Any, TypeVar
 
 
 @dataclass
@@ -12,7 +12,8 @@ class ImageConfigs:
 
 @dataclass
 class ColorConfigs:
-    theme: str
+    colormap: str
+    blender: str
 
 
 @dataclass

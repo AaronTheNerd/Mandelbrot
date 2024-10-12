@@ -1,8 +1,9 @@
-from mandelbrot.configs import Configs, ImageConfigs
 import math
-
 from functools import partial
+
 import numpy as np
+
+from mandelbrot.configs import Configs
 
 
 def actual_pos(x: int, y: int, configs: Configs) -> complex:
