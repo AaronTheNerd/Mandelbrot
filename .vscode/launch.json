@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch",
+      "type": "python",
+      "request": "launch",
+      "module": "mandelbrot.main",
+      "justMyCode": true
+    },
+    {
+      "name": "Format",
+      "type": "python",
+      "request": "launch",
+      "module": "black",
+      "justMyCode": true,
+      "args": [
+        "mandelbrot"
+      ]
+    }
+  ]
+}
