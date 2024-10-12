@@ -3,14 +3,26 @@ import os
 from dataclasses import dataclass, field, fields, is_dataclass
 from typing import Any, Optional, TypeVar
 
+@dataclass
+class ImageConfigs:
+    width: int
+    height: int
+
+@dataclass
+class ColorConfigs:
+    theme: str
+
+@dataclass
+class MandelbrotConfigs:
+    origin: list[float]
+    span: float
+    max_iterations: int
 
 @dataclass
 class Configs:
-    """
-    Add any properties expected to be in the config.json file here.
-    If you need to add an object define a new dataclass and add a property with that type.
-    """
-    ...
+    image: ImageConfigs
+    color: ColorConfigs
+    mandelbrot: MandelbrotConfigs
 
 
 T = TypeVar("T")

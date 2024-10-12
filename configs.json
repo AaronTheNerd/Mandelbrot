@@ -1,1 +1,14 @@
-{}
+{
+    "image": {
+        "width": 800,
+        "height": 800
+    },
+    "color": {
+        "theme": "candy_inter"
+    },
+    "mandelbrot": {
+        "origin": [-0.761574, -0.0847596],
+        "span": 0.0001,
+        "max_iterations": 300
+    }
+}
